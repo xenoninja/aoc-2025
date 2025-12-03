@@ -349,3 +349,6 @@ tags
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,vim,visualstudiocode,jetbrains+all,python
+
+# add input files to gitignore
+**/input/
