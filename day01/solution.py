@@ -1,3 +1,6 @@
+from utils.read import read_file_by_line
+
+
 def solve_puzzle(input_file):
     lines = read_file_by_line(input_file)
     idx = 50
@@ -29,18 +32,7 @@ def solve_puzzle(input_file):
     print("Puzzle #2's password:", snd_password)
 
 
-def read_file_by_line(file_path):
-    try:
-        with open(file_path, "r") as file:
-            return [line.strip() for line in file]
-    except FileNotFoundError:
-        print("Error: File not found")
-    except Exception as e:
-        print("Error:", e)
-    return []
-
-
 if __name__ == "__main__":
-    solve_puzzle("input/test")
-    solve_puzzle("input/another_test")
-    solve_puzzle("input/input")
+    solve_puzzle("./input/test")
+    solve_puzzle("./input/another_test")
+    solve_puzzle("./input/input")
