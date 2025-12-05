@@ -4,8 +4,8 @@ from utils.read import read_file_by_line
 def solve_puzzle(input_file):
     lines = read_file_by_line(input_file)
     idx = 50
-    fst_password = 0
-    snd_password = 0
+    fst_answer = 0
+    snd_answer = 0
 
     for line in lines:
         dir = line[:1]
@@ -21,15 +21,15 @@ def solve_puzzle(input_file):
                 idx = 99
             elif idx == 100:
                 idx = 0
-                snd_password += 1
+                snd_answer += 1
             elif idx == 0:
-                snd_password += 1
+                snd_answer += 1
 
         if idx == 0:
-            fst_password += 1
+            fst_answer += 1
 
-    print("Puzzle #1's password:", fst_password)
-    print("Puzzle #2's password:", snd_password)
+    print("Puzzle #1's answer:", fst_answer)
+    print("Puzzle #2's answer:", snd_answer)
 
 
 if __name__ == "__main__":

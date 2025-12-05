@@ -18,7 +18,7 @@ def solve_puzzle_one(input_file):
                 if id_str[:half_len] == id_str[half_len:]:
                     invalid_count += id
 
-    print("Puzzle #1's password:", invalid_count)
+    print("Puzzle #1's answer:", invalid_count)
 
 
 def solve_puzzle_two(input_file):
@@ -40,7 +40,7 @@ def solve_puzzle_two(input_file):
                         invalid_count += id
                         break
 
-    print("Puzzle #2's password:", invalid_count)
+    print("Puzzle #2's answer:", invalid_count)
 
 
 if __name__ == "__main__":
