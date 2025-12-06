@@ -3,6 +3,10 @@ from utils.read import read_file_by_line
 
 def solve_puzzle(input_file):
     lines = read_file_by_line(input_file)
+
+    if lines is None:
+        return
+
     idx = 50
     fst_answer = 0
     snd_answer = 0
@@ -28,8 +32,11 @@ def solve_puzzle(input_file):
         if idx == 0:
             fst_answer += 1
 
+    print("=" * 10)
+    print("Input file:", input_file)
     print("Puzzle #1's answer:", fst_answer)
     print("Puzzle #2's answer:", snd_answer)
+    print("=" * 10)
 
 
 if __name__ == "__main__":

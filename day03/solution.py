@@ -3,6 +3,10 @@ from utils.read import read_file_by_line
 
 def solve_puzzle_one(input_file):
     lines = read_file_by_line(input_file)
+
+    if lines is None:
+        return
+
     total_joltage = 0
 
     for bank in lines:
@@ -20,11 +24,18 @@ def solve_puzzle_one(input_file):
 
         total_joltage += cur_max_joltage
 
+    print("=" * 10)
+    print("Input file:", input_file)
     print("Puzzle #1's answer:", total_joltage)
+    print("=" * 10)
 
 
 def solve_puzzle_two(input_file):
     lines = read_file_by_line(input_file)
+
+    if lines is None:
+        return
+
     total_joltage = 0
 
     for bank in lines:
@@ -38,7 +49,10 @@ def solve_puzzle_two(input_file):
 
         total_joltage += max(max_lists)
 
+    print("=" * 10)
+    print("Input file:", input_file)
     print("Puzzle #2's answer:", total_joltage)
+    print("=" * 10)
 
 
 def find_max_joltage(batteries, start_idx, digits_left, cur_joltage, max_lists):

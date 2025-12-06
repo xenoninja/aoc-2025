@@ -19,7 +19,6 @@ def read_file_by_line(file_path):
         with open(path, "r") as file:
             return [line.strip() for line in file]
     except FileNotFoundError:
-        print("Error: File not found")
+        print("Error: File", file_path, "not found")
     except Exception as e:
         print("Error:", e)
-    return []

@@ -3,6 +3,10 @@ from utils.read import read_file_by_line
 
 def solve_puzzle_one(input_file):
     lines = read_file_by_line(input_file)
+
+    if lines is None:
+        return
+
     id_ranges = lines[0].split(",")
     invalid_count = 0
 
@@ -18,11 +22,18 @@ def solve_puzzle_one(input_file):
                 if id_str[:half_len] == id_str[half_len:]:
                     invalid_count += id
 
+    print("=" * 10)
+    print("Input file:", input_file)
     print("Puzzle #1's answer:", invalid_count)
+    print("=" * 10)
 
 
 def solve_puzzle_two(input_file):
     lines = read_file_by_line(input_file)
+
+    if lines is None:
+        return
+
     id_ranges = lines[0].split(",")
     invalid_count = 0
 
@@ -40,7 +51,10 @@ def solve_puzzle_two(input_file):
                         invalid_count += id
                         break
 
+    print("=" * 10)
+    print("Input file:", input_file)
     print("Puzzle #2's answer:", invalid_count)
+    print("=" * 10)
 
 
 if __name__ == "__main__":
