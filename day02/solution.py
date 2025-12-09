@@ -59,7 +59,7 @@ def solve_puzzle_two(input_file):
 
 if __name__ == "__main__":
     solve_puzzle_one("./input/test")
-    solve_puzzle_one("./input/input")
-
     solve_puzzle_two("./input/test")
+
+    solve_puzzle_one("./input/input")
     solve_puzzle_two("./input/input")

@@ -73,7 +73,7 @@ def find_max_joltage(batteries, start_idx, digits_left, cur_joltage, max_lists):
 
 if __name__ == "__main__":
     solve_puzzle_one("./input/test")
-    solve_puzzle_one("./input/input")
-
     solve_puzzle_two("./input/test")
+
+    solve_puzzle_one("./input/input")
     solve_puzzle_two("./input/input")
