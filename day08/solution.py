@@ -1,4 +1,3 @@
-from collections import Counter
 from operator import itemgetter
 from utils.read import read_file_by_line, raw_read_file_by_line
 
