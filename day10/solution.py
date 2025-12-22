@@ -1,6 +1,7 @@
 from utils.read import read_file_by_line
 import re
 from itertools import combinations_with_replacement
+import z3
 
 
 def solve_puzzle_one(input_file):
@@ -73,11 +74,8 @@ def solve_puzzle_two(input_file):
     selections = []
     total_moves = 0
 
-    cnt = 0
-
     for line in lines:
-        cnt += 1
-        print(cnt)
+        s = z3.Optimize()
         selections = list()
         goals_str = re.findall(r"\{(.*?)\}", line)[0]
         selections_str = re.findall(r"\((.*?)\)", line)
@@ -86,9 +84,25 @@ def solve_puzzle_two(input_file):
             n = list(map(int, c.split(",")))
             selections.append(n)
 
-        moves = 0
+        solution = [z3.Int(f"c{i}") for i in range(len(selections))]
 
-        total_moves += moves
+        s.add(
+            [
+                z3.Sum(
+                    solution[j]
+                    for j, selection in enumerate(selections)
+                    if i in selection
+                )
+                == goal
+                for i, goal in enumerate(goals)
+            ]
+        )
+        s.add(i >= 0 for i in solution)
+        s.minimize(z3.Sum(solution))
+
+        if s.check() == z3.sat:
+            model = s.model()
+        total_moves += sum(model[s].as_long() for s in solution)
 
     print("=" * 10)
     print("Input file:", input_file)
@@ -97,8 +111,8 @@ def solve_puzzle_two(input_file):
 
 
 if __name__ == "__main__":
-    # solve_puzzle_one("./input/test")
+    solve_puzzle_one("./input/test")
     solve_puzzle_two("./input/test")
 
-    # solve_puzzle_one("./input/input")
+    solve_puzzle_one("./input/input")
     solve_puzzle_two("./input/input")
